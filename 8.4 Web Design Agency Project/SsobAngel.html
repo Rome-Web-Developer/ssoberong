@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: red;
+        }
+        .buttons {
+            position: relative;
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+            position: absolute;
+        }
+        #imageContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
+        #thankYouMessage {
+            display: none;
+            font-size: 1.8rem;
+            color: darkred;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my girlfriend, Angel Herrera Guevarra?</h1>
+    <div class="buttons">
+        <button class="yes" onclick="showImage()">Yes</button>
+        <button class="no" onclick="moveButton()">No</button>
+    </div>
+    <div id="imageContainer">
+        <img src="../Personal Pictures/2d8ee4d9-3c97-4692-9473-17d814f293f9.jpeg" alt="Valentine's Image">
+    </div>
+    <div id="thankYouMessage">Thank you for coming into my life! ❤️</div>
+    <script>
+        let noClickCount = 0;
+        function moveButton() {
+            if (noClickCount < 5) {
+                alert("Are you sure?");
+                noClickCount++;
+            }
+            let button = document.querySelector('.no');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+        function showImage() {
+            document.getElementById('imageContainer').style.display = 'block';
+            document.getElementById('thankYouMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
